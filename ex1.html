@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1</title>
+    <style>
+        * {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        .wrap {
+            background-color: #8b8164;
+            background-image: linear-gradient(#cfc7af 0%, #445f4a 74%);
+            height: 100vh;
+            padding-top: 200px;
+            
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            border-radius: 10px;
+            width: 77%;
+            margin: 0 auto;
+
+        }
+
+        ul {
+            /* background: rgba(0, 0, 0, 0.7) */
+            text-align: center;
+            height: 380px;
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            /* border: 1px solid #000; */
+            width: 15%;
+            border-radius: 5px;
+            background: #c6cea5;
+            padding-bottom: 30px;
+
+        }
+
+        ul:hover {
+            box-shadow: 3px 3px 10px rgb(3, 3, 3);
+            transition: 0.3s;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            font-size: 28px;
+            position: relative;
+            color: rgb(151, 108, 108);
+            width: 80px;
+            height: 80px;
+            
+            margin: 0 auto;
+        }
+
+
+
+
+        li {
+            background: rgb(238, 238, 223);
+            display: flex;
+            height: 50px;
+            justify-content: space-around;
+            align-items: center;
+            /* border: 1px solid #000; */
+            border-radius: 10px;
+
+            width: 60%;
+            margin: 0 auto;
+            color: rgb(76, 122, 71);
+            font-size: 18px;
+        }
+
+        .box {
+            margin: 100px;
+            display: flex;
+
+        }
+
+        .box1 {
+            background: #ccc;
+            background: linear-gradient(90deg, #fbffea, #c6cea5);
+            width: 20%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(53, 85, 65);
+
+        }
+
+        .box1:hover {
+            filter: drop-shadow(5px 5px 7px #333);
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="wrap">
+        <div class="container">
+            <ul id="list01"></ul>
+            <ul id="list02"></ul>
+            <ul id="list03"></ul>
+        </div>
+        <div class="box">
+            <div class="container box1" id="average_eng_score"></div>
+            <div class="container box1" id="average_math_score"></div>
+        </div>
+    </section>
+
+
+    <script>
+        let student = []
+        let Alex = {
+            name: 'Alex',
+            age: 18,
+            eng_score: 87,
+            math_score: 90
+        }
+        let Bill = {
+            name: 'Bill',
+            age: 19,
+            eng_score: 95,
+            math_score: 98
+        }
+        let Cook = {
+            name: 'Cook',
+            age: 17,
+            eng_score: 100,
+            math_score: 73
+        }
+        student.push(Alex, Bill, Cook)
+        console.log(student[0])
+        let firstUl = document.getElementById('list01')
+        firstUl.insertAdjacentHTML("beforeend", `<p>${student[0].name}</p>`)
+        firstUl.insertAdjacentHTML("beforeend", `<li>Age: ${student[0].age}</li>`)
+        firstUl.insertAdjacentHTML("beforeend", `<li>English Score: ${student[0].eng_score}</li>`)
+        firstUl.insertAdjacentHTML("beforeend", `<li>Math Score: ${student[0].math_score}</li>`)
+
+        let secondUl = document.getElementById('list02')
+        secondUl.insertAdjacentHTML("beforeend", `<p>${student[1].name}</p>`)
+        secondUl.insertAdjacentHTML("beforeend", `<li>Age: ${student[1].age}</li>`)
+        secondUl.insertAdjacentHTML("beforeend", `<li>English Score: ${student[1].eng_score}</li>`)
+        secondUl.insertAdjacentHTML("beforeend", `<li>Math Score: ${student[1].math_score}</li>`)
+        let thirdUl = document.getElementById('list03')
+        thirdUl.insertAdjacentHTML("beforeend", `<p>${student[2].name}</p>`)
+        thirdUl.insertAdjacentHTML("beforeend", `<li>Age: ${student[2].age}</li>`)
+        thirdUl.insertAdjacentHTML("beforeend", `<li>English Score: ${student[2].eng_score}</li>`)
+        thirdUl.insertAdjacentHTML("beforeend", `<li>Math Score: ${student[2].math_score}</li>`)
+
+        let average_eng_score = (student[0].eng_score + student[1].eng_score + student[2].eng_score) / student.length
+        let average_math_score = (student[0].math_score + student[1].math_score + student[2].math_score) / student.length
+
+        console.log(average_math_score)
+
+        let engPrint = document.getElementById('average_eng_score')
+        engPrint.insertAdjacentHTML("beforeend", `<h2>Avg English Score: ${average_eng_score}</h2>`)
+        let mathPrint = document.getElementById('average_math_score')
+        mathPrint.insertAdjacentHTML("beforeend", `<h2>Avg Math Score: ${average_math_score}</h2>`)
+
+
+    </script>
+</body>
+
+</html>
